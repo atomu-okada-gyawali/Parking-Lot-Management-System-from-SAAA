@@ -26,9 +26,10 @@ def select(slot):
         for parkingArea in parkingFrame.winfo_children():
             for oneSlot in parkingArea.winfo_children():
                 oneSlot.config(fg= 'SystemButtonText')
-        for button1 in buttonFrame.winfo_children():
-            button1.config(state = ACTIVE)
+        for button in buttonFrame.winfo_children():
+            button.config(state = ACTIVE,bg = 'yellow')
             slot.config(fg = 'lightBlue')
+        assert billButton.cget('bg') == 'yellow', 'buttons not yellow'
 
 #Creates sidebar
 sidebarFrame = Frame(root, width = 327, height = 962, bg = '#FBBC05')
@@ -36,7 +37,7 @@ sidebarFrame.pack(side = LEFT,fill = Y)
 sidebarFrame.pack_propagate(False)
 
 #Creates logo in the sidebar
-img = ImageTk.PhotoImage(Image.open(r"C:\classwork\Programs and algorithms\1st sem project\logo.png"))
+img = ImageTk.PhotoImage(Image.open(r"main_page\logo.png"))
 logo = Label(sidebarFrame, image = img)
 logo.pack()
 
